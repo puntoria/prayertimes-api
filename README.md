@@ -15,7 +15,7 @@ Loading in developer mode ...
 ::1 - - [16/Dec/2016:18:36:43 +0100] "GET /api/prayer_times HTTP/1.1" 200 83 0.0125
 ```
 
-### Hello World
+### Example
 
 Navigate to http://localhost:9292/api/prayer_times with a browser or use `curl`.
 
