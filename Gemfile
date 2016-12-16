@@ -6,6 +6,7 @@ gem "rake"
 gem "grape", "~> 0.16"
 gem "grape-entity"
 gem "grape-swagger"
+gem "rack-cors"
 gem "grape-swagger-entity"
 
 group :test do
