@@ -1,7 +1,8 @@
-require File.expand_path('../config/environment', __FILE__)
+require './config/application'
 
-if ENV['RACK_ENV'] == 'development'
-  puts 'Loading in developer mode ...'
-end
+use OTR::ActiveRecord::ConnectionManagement
 
-run DawaTools::App.instance
+run Rack::Cascade.new([
+  Routes::V1::API,
+  # add versions as desired
+])

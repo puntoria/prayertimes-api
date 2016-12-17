@@ -1,14 +1,14 @@
 require "spec_helper"
 
-describe DawaTools::API do 
+describe Routes::V1::PrayerTimes do 
   include Rack::Test::Methods
 
   def app
-    DawaTools::API
+    Routes::V1::API
   end
 
   it "returns all prayer times for a specific date" do
-    get "api/prayer_times", timestamp: Date.today.to_time.to_i
+    get "", timestamp: Date.today.to_time.to_i
 
     expect(last_response.status).to eq(200)
     expect(last_response.body).to eq({
@@ -45,3 +45,4 @@ describe DawaTools::API do
   it "UNIX timestamp for the specified time zone" do 
   end
 end
+
