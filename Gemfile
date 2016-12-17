@@ -11,6 +11,7 @@ gem "grape-entity"
 gem "grape-swagger"
 gem "rack-cors"
 gem "grape-swagger-entity"
+gem "pry"
 
 group :test do
   gem "rspec"

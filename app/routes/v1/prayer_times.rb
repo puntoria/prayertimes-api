@@ -7,8 +7,8 @@ module Routes
       end
 
       get "prayer_times/daily" do
-        # date = Time.at(params[:timestamp]).strftime("%d-%m-%y")
-        Timings.all
+        date = Time.at(params[:timestamp]).strftime("%d-%m-%Y")
+        Timings.find_by_date(date)
       end
     end
   end

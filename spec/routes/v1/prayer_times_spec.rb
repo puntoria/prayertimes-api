@@ -45,6 +45,9 @@ describe Routes::V1::PrayerTimes do
 
     it "UNIX timestamp for the specified time zone" do 
     end
+
+    it 'returns a 404 error if timestamp is not provided' do
+    end
   end
 end
 
