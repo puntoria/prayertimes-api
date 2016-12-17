@@ -2,6 +2,8 @@ source "http://rubygems.org"
 
 ruby "2.3.1"
 
+gem "otr-activerecord"
+gem "sqlite3"
 gem "rake"
 gem "grape", "~> 0.16"
 gem "grape-entity"
