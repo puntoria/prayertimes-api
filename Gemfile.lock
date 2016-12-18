@@ -131,7 +131,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord (~> 4.2.7)
   capybara
-  grape (~> 0.16)
+  grape
   grape-entity
   grape-swagger
   grape-swagger-entity

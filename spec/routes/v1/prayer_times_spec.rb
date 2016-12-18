@@ -9,7 +9,7 @@ describe Routes::V1::PrayerTimes do
 
   describe 'GET /api/v1/prayer_times' do
     it "returns all prayer times for a specific date" do
-      get "", timestamp: Date.today.to_time.to_i
+      get "/v1/prayer_times/daily", timestamp: 1481929200
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to eq({
@@ -40,10 +40,13 @@ describe Routes::V1::PrayerTimes do
       }.to_json)
     end
 
-    it "returns prayer times for a specific month" do 
+    it "returns prayer times for a specific week" do
     end
 
-    it "UNIX timestamp for the specified time zone" do 
+    it "returns prayer times for a specific month" do
+    end
+
+    it "UNIX timestamp for the specified time zone" do
     end
 
     it 'returns a 404 error if timestamp is not provided' do
