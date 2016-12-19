@@ -1,5 +1,15 @@
 DawaTools API
 
+### Import Records to Heroku Postgres
+
+```
+$ gem install sequel
+
+then
+
+$ sequel -C sqlite://db/development.sqlite3 postgres://kfcsavwghzbvnn:5995dce36a31b630b1f88ed8bae4a02f1aeff284f0dc0548885537bdd878a0be@ec2-54-225-240-168.compute-1.amazonaws.com:5432/de8konnoso18m
+```
+
 Run
 ---
 
