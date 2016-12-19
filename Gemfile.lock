@@ -80,6 +80,7 @@ GEM
     otr-activerecord (1.2.0)
       activerecord (>= 4.0, < 5.1)
       hashie-forbidden_attributes (~> 0.1)
+    pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -136,6 +137,7 @@ DEPENDENCIES
   grape-swagger
   grape-swagger-entity
   otr-activerecord
+  pg
   pry
   rack-cors
   rack-test
@@ -148,4 +150,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.1
+   1.13.6

@@ -4,7 +4,6 @@ ruby "2.3.1"
 
 gem "activerecord", "~> 4.2.7", require: "active_record"
 gem "otr-activerecord"
-gem "sqlite3"
 gem "rake"
 gem "grape"
 gem "grape-entity"
@@ -13,9 +12,17 @@ gem "rack-cors"
 gem "grape-swagger-entity"
 gem "pry"
 
+group :development, :test do
+  gem "sqlite3"
+end
+
 group :test do
   gem "rspec"
   gem "rack-test"
   gem "capybara"
   gem "selenium-webdriver"
+end
+
+group :production do 
+  gem "pg"
 end
