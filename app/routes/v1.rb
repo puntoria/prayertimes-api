@@ -4,7 +4,7 @@ module Routes
       version 'v1'
       format :json
 
-      mount Routes::V1::PrayerTimes
+      mount Routes::V1::Timing
     end
   end
 end

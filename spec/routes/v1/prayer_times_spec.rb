@@ -1,43 +1,40 @@
 require "spec_helper"
 
-describe Routes::V1::PrayerTimes do 
+describe Routes::V1::Timing do 
   include Rack::Test::Methods
 
   def app
     Routes::V1::API
   end
 
-  describe 'GET /api/v1/prayer_times' do
+  describe 'GET /api/v1/timings' do
     it "returns all prayer times for a specific date" do
-      get "/v1/prayer_times/daily", timestamp: 1481929200
+      get "/v1/timings/daily", timestamp: 1481929200
 
       expect(last_response.status).to eq(200)
-      expect(last_response.body).to eq({
-        data: [
-          {
-            id: 1,
-            type: "prayer_times",
-            for: "daily",
-            attributes: {
-              date_for: "2016-12-17",
-              fajr: "5:56",
-              shurooq: "7:53",
-              dhuhr: "11:56",
-              asr: "1:35",
-              maghrib: "3:59",
-              isha: "5:49"
-            }
-          }
-        ],
-        prayer_method_name: "",
-        daylight: 0,
-        timezone: "",
-        latitude: "",
-        longitude: "",
-        city: "",
-        country: "",
-        qibla_direction: ""
-      }.to_json)
+      expect(last_response.body).to eq(
+        {
+          "data": {
+            "type": "prayer_times",
+            "for": "daily",
+            "hijri": "17-03-1438",
+            "sunrise": "05:15",
+            "fajr": "05:45",
+            "shurooq": "06:56",
+            "dhuhr": "11:37",
+            "asr": "13:57",
+            "maghrib": "16:12",
+            "isha": "17:51"
+          },
+          "prayer_method_name": "0",
+          "daylight": "-/-",
+          "timezone": "UTC+01:00",
+          "latitude": "42.6629",
+          "longitude": "21.1655",
+          "city": "Pristina",
+          "country": "Kosovo",
+          "qibla_direction": "137"
+        }.to_json)
     end
 
     it "returns prayer times for a specific week" do
