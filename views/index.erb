@@ -53,6 +53,7 @@ $(document).ready(function() {
       if( elapsed ) return;
       if (event.elapsed) {
         elapsed = true;
+        $this.html(finalDate).parent().removeClass('active')
         $this.html(finalDate).parent().addClass('disabled');
         startCountdown( ++onCountdown );
       } else {
