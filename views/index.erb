@@ -45,11 +45,13 @@ $(document).ready(function() {
   $('[data-countdown]').each(function() {
     var $this = $(this), finalDate = $(this).data('countdown');
 
+
     $this.countdown(finalDate, function(event) {
+    console.log($this);
       $this.html(event.strftime('%H:%M:%S'));
     })
     .on('finish.countdown', function(event) {
-      $(this).html('-/-')
+      $(this).html('--:--')
         .parent().addClass('disabled');
     });
   });
