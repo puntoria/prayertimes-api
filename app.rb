@@ -1,6 +1,6 @@
 require "date"
 require "sinatra"
-require "CGI"
+
 class App < Sinatra::Base
   set :root, File.dirname(__FILE__)
 
@@ -18,6 +18,18 @@ class App < Sinatra::Base
       sources.each do |path|
         html << "<link rel='stylesheet' href=\"#{path}\">"
       end
+      html
+    end
+
+    def countdown_tag(name, time)
+      current_date = Date.today.strftime("%Y/%m/%d")
+      "<div data-countdown=\"#{current_date} #{time}:00\"></div>"
+    end
+
+    def countdown(name, time)
+      html = ""
+      html << "<span>#{name}</span>"
+      html << countdown_tag(name, time)
       html
     end
   end
