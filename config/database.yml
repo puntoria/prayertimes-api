@@ -1,10 +1,7 @@
 development: 
-  adapter: postgresql
-  database: dawa-tools
+  adapter: sqlite3
+  database: db/development.sqlite3
   encoding: utf8
-  min_messages: warning
-  pool: 5
-  reaping_frequency: 10
   timeout: 5000
 
 test:

@@ -10,7 +10,9 @@ gem "grape-entity"
 gem "grape-swagger"
 gem "rack-cors"
 gem "grape-swagger-entity"
-gem "pry"
+gem "sinatra", github: "sinatra/sinatra"
+
+
 
 group :development, :test do
   gem "sqlite3"

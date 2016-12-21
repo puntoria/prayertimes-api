@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: 9f4100a769bc62a8087a12511f26ea895e5e09c5
+  specs:
+    rack-protection (2.0.0.beta2)
+      rack
+    sinatra (2.0.0.beta2)
+      mustermann (= 1.0.0.beta2)
+      rack (~> 2.0)
+      rack-protection (= 2.0.0.beta2)
+      tilt (~> 2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -22,7 +34,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     builder (3.2.2)
-    capybara (2.7.1)
+    capybara (2.11.0)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -31,28 +43,28 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    coderay (1.1.1)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     diff-lcs (1.2.5)
+    enumerable-lazy (0.0.2)
     equalizer (0.0.11)
     ffi (1.9.14)
-    grape (0.18.0)
+    grape (0.17.0)
       activesupport
       builder
       hashie (>= 2.1.0)
       multi_json (>= 1.3.2)
       multi_xml (>= 0.5.2)
-      mustermann-grape (~> 0.4.0)
+      mustermann19 (~> 0.4.3)
       rack (>= 1.3.0)
       rack-accept
       virtus (>= 1.0.0)
     grape-entity (0.6.0)
       activesupport
       multi_json (>= 1.3.2)
-    grape-swagger (0.25.2)
+    grape-swagger (0.25.3)
       grape (>= 0.12.0)
     grape-swagger-entity (0.1.5)
       grape-entity
@@ -63,7 +75,6 @@ GEM
     i18n (0.7.0)
     ice_nine (0.11.2)
     json (1.8.3)
-    method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -71,20 +82,15 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     multi_xml (0.6.0)
-    mustermann (0.4.0)
-      tool (~> 0.2)
-    mustermann-grape (0.4.0)
-      mustermann (= 0.4.0)
+    mustermann (1.0.0.beta2)
+    mustermann19 (0.4.4)
+      enumerable-lazy
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     otr-activerecord (1.2.0)
       activerecord (>= 4.0, < 5.1)
       hashie-forbidden_attributes (~> 0.1)
     pg (0.19.0)
-    pry (0.10.4)
-      coderay (~> 1.1.0)
-      method_source (~> 0.8.1)
-      slop (~> 3.4)
     public_suffix (2.0.4)
     rack (2.0.1)
     rack-accept (0.4.5)
@@ -92,7 +98,7 @@ GEM
     rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (11.3.0)
+    rake (12.0.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -107,14 +113,13 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     rubyzip (1.2.0)
-    selenium-webdriver (2.53.4)
+    selenium-webdriver (3.0.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    slop (3.6.0)
     sqlite3 (1.3.12)
     thread_safe (0.3.5)
-    tool (0.2.3)
+    tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     virtus (1.0.5)
@@ -138,12 +143,12 @@ DEPENDENCIES
   grape-swagger-entity
   otr-activerecord
   pg
-  pry
   rack-cors
   rack-test
   rake
   rspec
   selenium-webdriver
+  sinatra!
   sqlite3
 
 RUBY VERSION

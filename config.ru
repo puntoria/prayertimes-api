@@ -1,8 +1,12 @@
 require './config/application'
+require './app'
 
 use OTR::ActiveRecord::ConnectionManagement
+use Rack::Session::Cookie
 
 run Rack::Cascade.new([
   Routes::V1::API,
-  # add versions as desired
+  # add web-view.
+  App
 ])
+
