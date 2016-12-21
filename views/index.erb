@@ -11,7 +11,7 @@
 
   <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item active">
+        <li class="list-group-item list-group-item-action">
           Fajr<div data-countdown="<%= @date %> <%= timings.fajr %>:00"</div>
         </li>
         <li class="list-group-item list-group-item-action">
@@ -57,7 +57,6 @@ $(document).ready(function() {
         startCountdown( ++onCountdown );
       } else {
         $this.html(event.strftime('%H:%M:%S'));
-        // $this.html(event.strftime('%H:%M:%S').parent().addClass('active'));
       }
     });
   }

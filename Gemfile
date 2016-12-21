@@ -12,6 +12,7 @@ gem "rack-cors"
 gem "grape-swagger-entity"
 gem "sinatra", github: "sinatra/sinatra"
 gem "pry"
+gem "grape-swagger"
 
 group :development, :test do
   gem "sqlite3"
@@ -24,6 +25,6 @@ group :test do
   gem "selenium-webdriver"
 end
 
-group :production do 
+group :production do
   gem "pg"
 end

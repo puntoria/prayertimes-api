@@ -1,3 +1,5 @@
+require "grape-swagger"
+
 module Routes
   module V1
     class API < Grape::API
@@ -5,6 +7,10 @@ module Routes
       format :json
 
       mount Routes::V1::Timing
+
+      add_swagger_documentation \
+           mount_path: '/doc'
+
     end
   end
 end
