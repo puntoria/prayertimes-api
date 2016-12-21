@@ -47,9 +47,6 @@ $(document).ready(function() {
 
     $this.countdown(finalDate, function(event) {
       $this.html(event.strftime('%H:%M:%S'));
-      if (event.elapsed == true) {
-        $this.html.addClass("disabled")
-      }
     });
   });
 });
