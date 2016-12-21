@@ -53,10 +53,11 @@ $(document).ready(function() {
       if( elapsed ) return;
       if (event.elapsed) {
         elapsed = true;
-        $this.html(finalDate).parent().removeClass('active').addClass('disabled');
+        $this.html(finalDate).parent().addClass('disabled');
         startCountdown( ++onCountdown );
       } else {
-        $this.html(event.strftime('%H:%M:%S').parent().addClass('active'));
+        $this.html(event.strftime('%H:%M:%S'));
+        // $this.html(event.strftime('%H:%M:%S').parent().addClass('active'));
       }
     });
   }
