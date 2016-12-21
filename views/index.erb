@@ -12,24 +12,24 @@
     <p><a class="btn btn-lg btn-primary" href="/v1/timings/daily?timestamp=<%= Date.today.strftime("%d-%m-%Y") %>" role="button">API Data</a></p>
 
     <div class="card">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item active">
-      Fajr<div data-countdown="<%= @date %> <%= timings.fajr %>:00"</div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      Dhuhr<div data-countdown="<%= @date %> <%= timings.dhuhr %>:00"</div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      Asr<div data-countdown="<%= @date %> <%= timings.asr %>:00"</div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      Maghrib<div data-countdown="<%= @date %> <%= timings.maghrib %>:00"</div>
-    </li>
-    <li class="list-group-item list-group-item-action">
-      Isha<div data-countdown="<%= @date %> <%= timings.isha %>:00"</div>
-    </li>
-  </ul>
-</div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item active">
+          Fajr<div data-countdown="<%= @date %> <%= timings.fajr %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Dhuhr<div data-countdown="<%= @date %> <%= timings.dhuhr %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Asr<div data-countdown="<%= @date %> <%= timings.asr %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Maghrib<div data-countdown="<%= @date %> <%= timings.maghrib %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Isha<div data-countdown="<%= @date %> <%= timings.isha %>:00"</div>
+        </li>
+      </ul>
+    </div>
   </div>
 
 
@@ -47,6 +47,10 @@ $(document).ready(function() {
 
     $this.countdown(finalDate, function(event) {
       $this.html(event.strftime('%H:%M:%S'));
+    })
+    .on('finish.countdown', function(event) {
+      $(this).html('-/-')
+        .parent().addClass('disabled');
     });
   });
 });
