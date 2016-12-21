@@ -5,15 +5,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 
 <div class="container">
-
-
   <div class="jumbotron">
-    </p>
-    <p><a class="btn btn-lg btn-primary" href="/v1/timings/daily?timestamp=<%= Time.now.to_i %>" role="button">API Data</a></p>
+  </p>
+  <p><a class="btn btn-lg btn-primary" href="/v1/timings/daily?timestamp=<%= Time.now.to_i %>" role="button">API Data</a></p>
 
+  <div class="card">
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">
+        <li class="list-group-item active">
           Fajr<div data-countdown="<%= @date %> <%= timings.fajr %>:00"</div>
         </li>
         <li class="list-group-item list-group-item-action">
@@ -30,7 +29,7 @@
         </li>
       </ul>
     </div>
-    </div>
+  </div>
 
   <footer class="footer">
     <p>© DawaTools 2016-2017</p>
@@ -41,19 +40,31 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-  $('[data-countdown]').each(function() {
-    var $this = $(this), finalDate = $(this).data('countdown');
-    $this.countdown(finalDate, function(event) {
-        if (event.elapsed) {
-          $this.html(finalDate).parent().addClass('disabled');
-        } else {
-          $this.html(event.strftime('%H:%M:%S'));
-        }
-    })
-    .on('finish.countdown', function(event) {
-      $(this).html('Completed!');
-    });
+  var onCountdown = 0;
+
+  $('[data-countdown]').each(function(idx,el){
+    $(el).text( $(el).data('countdown').split(' ')[1] );
   });
+
+  function startCountdown( i ) {
+    var $this = $('[data-countdown]').eq( i ),
+    finalDate = $this.data('countdown'),
+    elapsed = false;
+
+    $this.countdown(finalDate, function(event) {
+      if( elapsed ) return;
+      if (event.elapsed) {
+        elapsed = true;
+        $this.html(finalDate).parent().addClass('disabled');
+        startCountdown( ++onCountdown );
+      } else {
+        $this.html(event.strftime('%H:%M:%S'));
+      } // ahhahhaa
+    });
+  } // Ta kom hack !! by PLLUM! hahhaha si
+
+  startCountdown( onCountdown );
+
 });
 
 </script>
