@@ -13,16 +13,24 @@
 
     <div class="card">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item list-group-item-action">
-          Fajr<div data-countdown="<%= @date %> 14:24:20"</div>
+        <li class="list-group-item">
+          Fajr<div data-countdown="<%= @date %> <%= timings.fajr %>:00"</div>
         </li>
         <li class="list-group-item list-group-item-action">
-          Dhuhr<div data-countdown="<%= @date %> 14:24:30"</div>
+          Dhuhr<div data-countdown="<%= @date %> <%= timings.dhuhr %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Asr<div data-countdown="<%= @date %> <%= timings.asr %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Maghrib<div data-countdown="<%= @date %> <%= timings.maghrib %>:00"</div>
+        </li>
+        <li class="list-group-item list-group-item-action">
+          Isha<div data-countdown="<%= @date %> <%= timings.isha %>:00"</div>
         </li>
       </ul>
     </div>
-  </div>
-
+    </div>
 
   <footer class="footer">
     <p>© DawaTools 2016-2017</p>
