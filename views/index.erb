@@ -47,7 +47,6 @@ $(document).ready(function() {
 
 
     $this.countdown(finalDate, function(event) {
-    console.log($this);
       $this.html(event.strftime('%H:%M:%S'));
     })
     .on('finish.countdown', function(event) {
