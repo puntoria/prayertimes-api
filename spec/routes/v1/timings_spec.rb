@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Routes::V1::Timing do 
+describe Routes::V1::Timing do
   include Rack::Test::Methods
 
   def app
@@ -14,10 +14,19 @@ describe Routes::V1::Timing do
       expect(last_response.status).to eq(200)
       expect(last_response.body).to eq(
         {
+          "for": "daily",
+          "date": "17-12-2016",
+          "hijri": "17-03-1438",
+          "prayer_method_name": "0",
+          "daylight": "-/-",
+          "timezone": "UTC+01:00",
+          "latitude": "42.6629",
+          "longitude": "21.1655",
+          "city": "Pristina",
+          "country": "Kosovo",
+          "qibla_direction": "137",
+          "type": "prayer_times",
           "data": {
-            "type": "prayer_times",
-            "for": "daily",
-            "hijri": "17-03-1438",
             "sunrise": "05:15",
             "fajr": "05:45",
             "shurooq": "06:56",
@@ -26,14 +35,6 @@ describe Routes::V1::Timing do
             "maghrib": "16:12",
             "isha": "17:51"
           },
-          "prayer_method_name": "0",
-          "daylight": "-/-",
-          "timezone": "UTC+01:00",
-          "latitude": "42.6629",
-          "longitude": "21.1655",
-          "city": "Pristina",
-          "country": "Kosovo",
-          "qibla_direction": "137"
         }.to_json)
     end
 

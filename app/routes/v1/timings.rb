@@ -12,7 +12,9 @@ module Routes
       get "timings/daily" do
         date = Time.at(params[:timestamp]).strftime("%d-%m-%Y")
         timings = Timings.find_by_date(date)
-        present :data, timings, with: Entities::V1::Timing
+        present :for, "daily"
+        present :date, date
+        present :hijri, timings.hijri
         present :prayer_method_name, "0"
         present :daylight, "-/-"
         present :timezone, "UTC+01:00"
@@ -21,6 +23,8 @@ module Routes
         present :city, "Pristina"
         present :country, "Kosovo"
         present :qibla_direction, "137"
+        present :type, "prayer_times"
+        present :data, timings, with: Entities::V1::Timing
       end
 
       get "timings/weekly" do
