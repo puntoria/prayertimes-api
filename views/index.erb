@@ -55,9 +55,9 @@
             parent().removeClass('active').addClass('disabled');
           startCountdown( ++onCountdown );
         } else {
-          var format = 'in %H %M';
+          var format = 'in %Hh %Mm';
           if (event.offset.totalHours <= 0) {
-            format = 'in %M %S';
+            format = 'in %Mm %Ss';
           };
           $this.html(event.strftime(format)).parent().addClass('active');
         }
