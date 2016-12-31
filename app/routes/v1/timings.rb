@@ -17,7 +17,8 @@ module Routes
         present :date, date
         present :hijri, timings.hijri
         present :hijri_formatted, Hijri::DateTime.now.strftime('%c')
-        present :prayer_method_name, "0"
+        present :calculation_method, "Muslim World League Fajr 18.0 degrees, Isha 17.0 degrees"
+        present :juristic_method, "Standard (Hanbali, Maliki, Shafi)"
         present :daylight, "-/-"
         present :timezone, "UTC+01:00"
         present :latitude, "42.6629"

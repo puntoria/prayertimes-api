@@ -1,4 +1,5 @@
 require "spec_helper"
+require "hijri"
 
 describe Routes::V1::Timing do
   include Rack::Test::Methods
@@ -17,7 +18,9 @@ describe Routes::V1::Timing do
           "for": "daily",
           "date": "17-12-2016",
           "hijri": "17-03-1438",
-          "prayer_method_name": "0",
+          "hijri_formatted": Hijri::DateTime.now.strftime('%c'),
+          "calculation_method": "Muslim World League Fajr 18.0 degrees, Isha 17.0 degrees",
+          "juristic_method": "Standard (Hanbali, Maliki, Shafi)",
           "daylight": "-/-",
           "timezone": "UTC+01:00",
           "latitude": "42.6629",
