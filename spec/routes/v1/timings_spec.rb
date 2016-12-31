@@ -9,7 +9,7 @@ describe Routes::V1::Timing do
 
   describe 'GET /api/v1/timings' do
     it "returns all prayer times for a specific date" do
-      get "/v1/timings/daily", timestamp: 1481929200
+      get "/v1/timings/daily", timestamp: 1481929200, hide_optional_fields: false
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to eq(

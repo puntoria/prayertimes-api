@@ -7,6 +7,7 @@ module Routes
       desc "Returns all prayer times for a specific date"
       params do
         requires :timestamp, type: Integer
+        optional :hide_optional_fields, type: Boolean, default: 'true'
       end
 
       get "timings/daily" do
@@ -24,7 +25,7 @@ module Routes
         present :country, "Kosovo"
         present :qibla_direction, "137"
         present :type, "prayer_times"
-        present :data, timings, with: Entities::V1::Timing
+        present :data, timings, with: Entities::V1::Timing, hide_optional_fields: params[:hide_optional_fields] 
       end
 
       get "timings/weekly" do
