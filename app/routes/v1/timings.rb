@@ -16,6 +16,7 @@ module Routes
         present :for, "daily"
         present :date, date
         present :hijri, timings.hijri
+        present :hijri_formatted, Hijri::DateTime.now.strftime('%c')
         present :prayer_method_name, "0"
         present :daylight, "-/-"
         present :timezone, "UTC+01:00"

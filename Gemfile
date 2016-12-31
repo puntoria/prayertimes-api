@@ -13,6 +13,7 @@ gem "grape-swagger-entity"
 gem "sinatra", github: "sinatra/sinatra"
 gem "pry"
 gem "grape-swagger"
+gem "hijri"
 
 group :development, :test do
   gem "sqlite3"
