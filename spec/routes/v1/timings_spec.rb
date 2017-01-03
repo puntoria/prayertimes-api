@@ -30,7 +30,6 @@ describe Routes::V1::Timing do
           "qibla_direction": "137",
           "type": "prayer_times",
           "data": {
-            "sunrise": "05:15",
             "fajr": "05:45",
             "shurooq": "06:56",
             "dhuhr": "11:37",
