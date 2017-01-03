@@ -38,3 +38,11 @@ Shafi)","daylight":"-/-","timezone":"UTC+01:00","latitude":"42.6629","longitude"
 
 ### TODO
 - [ ] Add country/city params
+
+## License
+
+Timings API is Copyright (c) 2016-2017 Korab Hoxha, and mozaix,
+inc. It is free software, and may be redistributed under the AGPL license
+detailed in the [LICENSE] file.
+
+[LICENSE]: /LICENSE
