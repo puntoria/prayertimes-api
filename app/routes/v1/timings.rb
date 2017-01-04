@@ -27,7 +27,7 @@ module Routes
         present :country, "Kosovo"
         present :qibla_direction, "137"
         present :type, "prayer_times"
-        present :data, timings, with: Entities::V1::Timing, hide_optional_fields: params[:hide_optional_fields] 
+        present :data, timings, with: Entities::V1::Timing, optional_fields: params[:hide_optional_fields]
       end
 
       get "timings/weekly" do
