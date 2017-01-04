@@ -4,12 +4,16 @@ module Routes
       helpers do
       end
 
+      get "timings/random" do
+        timings = Placeholder.new
+        present :data, timings.random, with: Entities::V1::Timing, optional_fields: params[:hide_optional_fields]
+      end
+
       desc "Returns all prayer times for a specific date"
       params do
         requires :timestamp, type: Integer
         optional :hide_optional_fields, type: Boolean, default: 'true'
       end
-
       get "timings/daily" do
         date = Time.at(params[:timestamp]).strftime("%d-%m-%Y")
         timings = Timings.find_by_date(date)
