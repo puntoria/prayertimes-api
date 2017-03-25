@@ -3,6 +3,7 @@ require "sinatra"
 
 class App < Sinatra::Base
   set :root, File.dirname(__FILE__)
+  set :erb, layout: :'layouts/default'
 
   helpers do
     def javascript_include_tags(*sources)
