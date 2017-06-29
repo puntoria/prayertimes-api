@@ -4,7 +4,6 @@ require "sinatra"
 class App < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :erb, layout: :'layouts/default'
-  set :public_folder, Proc.new { File.join(root, "public") }
 
   helpers do
     def javascript_include_tags(*sources)
