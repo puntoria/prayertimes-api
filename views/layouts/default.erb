@@ -2,6 +2,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="manifest" href="/manifest.json">
+  <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(["init", {
+      appId: ENV["ONESIGNAL_APP_ID"],
+      autoRegister: false,
+      notifyButton: {
+        enable: true
+      }
+    }]);
+  </script>
   <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/icons.css">
   <link rel="stylesheet" href="./css/unslider.css">
