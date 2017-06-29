@@ -7,7 +7,7 @@
   <script>
     var OneSignal = window.OneSignal || [];
     OneSignal.push(["init", {
-      appId: ENV["ONESIGNAL_APP_ID"],
+      appId: <%= ENV["ONESIGNAL_APP_ID"] %>,
       autoRegister: false,
       notifyButton: {
         enable: true
