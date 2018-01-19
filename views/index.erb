@@ -2,7 +2,7 @@
 <%= javascript_include_tags("https://code.jquery.com/jquery-2.2.4.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js") %>
 <%= stylesheet_include_tags("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css") %>
 
-<div class="container-fluid">
+<div class="container">
   <div class="jumbotron">
     <a class="btn btn-lg btn-primary" href="/v1/timings/daily?timestamp=<%= Time.now.to_i %>&hide_optional_fields=false" role="button">API Data</a></p>
 
