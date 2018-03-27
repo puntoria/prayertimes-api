@@ -1,77 +1,71 @@
 <br></br>
 <%= javascript_include_tags("https://code.jquery.com/jquery-2.2.4.min.js", "https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js") %>
-<%= stylesheet_include_tags("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css") %>
+<%= stylesheet_include_tags("https://bootswatch.com/4/yeti/bootstrap.min.css") %>
 
 <div class="container">
-  <div class="jumbotron">
-    <a class="btn btn-lg btn-primary" href="/v1/timings/daily?timestamp=<%= Time.now.to_i %>&hide_optional_fields=false" role="button">API Data</a></p>
+  <a class="btn btn-outline-primary" href="/v1/timings/daily?timestamp=<%= Time.now.to_i %>&hide_optional_fields=false" role="button">API Data</a></p>
 
-    <div class="card">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item list-group-item-action">
-          <%= countdown("Fajr", timings.fajr) %>
-        </li>
-        <li class="list-group-item list-group-item-action">
-          <%= countdown("Dhuhr", timings.dhuhr) %>
-        </li>
-        <li class="list-group-item list-group-item-action">
-          <%= countdown("Asr", timings.asr) %>
-        </li>
-        <li class="list-group-item list-group-item-action">
-          <%= countdown("Maghrib", timings.maghrib) %>
-        </li>
-        <li class="list-group-item list-group-item-action">
-          <%= countdown("Isha", timings.isha) %>
-        </li>
-      </ul>
-    </div>
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-action flex-column align-items-start">
+      <%= countdown("Fajr", timings.fajr) %>
+    </li>
+    <li class="list-group-item list-group-item-action flex-column align-items-start">
+      <%= countdown("Dhuhr", timings.dhuhr) %>
+    </li>
+    <li class="list-group-item list-group-item-action flex-column align-items-start">
+      <%= countdown("Asr", timings.asr) %>
+    </li>
+    <li class="list-group-item list-group-item-action flex-column align-items-start">
+      <%= countdown("Maghrib", timings.maghrib) %>
+    </li>
+    <li class="list-group-item list-group-item-action flex-column align-items-start">
+      <%= countdown("Isha", timings.isha) %>
+    </li>
+  </ul>
 
-    <footer class="footer" style="padding-top:20px;">
-      <p>© DawaTools 2016-2018</p>
-    </footer>
+  <footer class="footer" style="padding-top:20px;">
+    <p>© DawaTools 2016-<%= current_year %></p>
+  </footer>
 
-  </div>
   <style>
-    .jumbotron{ background-color: #fff; }
-    .active {
-      padding: 2.75rem 1.25rem;
-      font-size: x-large;
-    }
-    .list-group-item { background-color: #f8f9fa; text-align: center; }
-    .jumbotron { padding: 0px; }
+.active {
+  padding: 3.75rem 1.25rem;
+  font-size: x-large;
+}
+    .list-group-item { text-align: center; }
   </style>
 
   <script type="text/javascript">
-  $(document).ready(function() {
-    var onCountdown = 0;
-    $('[data-countdown]').each(function(idx,el){
-      $(el).text( $(el).data('countdown').split(' ')[1] );
-    });
-
-    function startCountdown( i ) {
-      var $this = $('[data-countdown]').eq( i ),
-      finalDate = $this.data('countdown'),
-      elapsed = false;
-
-      $this.countdown(finalDate, function(event) {
-        if( elapsed ) return;
-
-        if (event.elapsed) {
-          elapsed = true;
-
-          $this.html(finalDate.split(' ')[1]).
-            parent().removeClass('active').addClass('disabled');
-          startCountdown( ++onCountdown );
-        } else {
-          var format = 'in %Hh %Mm';
-          if (event.offset.totalHours <= 0) {
-            format = 'in %Mm %Ss';
-          };
-          $this.html(event.strftime(format)).parent().addClass('active');
-        }
+    $(document).ready(function() {
+      var onCountdown = 0;
+      $('[data-countdown]').each(function(idx,el){
+        $(el).text( $(el).data('countdown').split(' ')[1] );
       });
-    }
-    startCountdown( onCountdown );
-  });
+
+      function startCountdown( i ) {
+        var $this = $('[data-countdown]').eq( i ),
+          finalDate = $this.data('countdown'),
+          elapsed = false;
+
+        $this.countdown(finalDate, function(event) {
+          if( elapsed ) return;
+
+          if (event.elapsed) {
+            elapsed = true;
+
+            $this.html(finalDate.split(' ')[1]).
+              parent().removeClass('active').addClass('disabled');
+            startCountdown( ++onCountdown );
+          } else {
+            var format = 'in %Hh %Mm';
+            if (event.offset.totalHours <= 0) {
+              format = 'in %Mm %Ss';
+            };
+            $this.html(event.strftime(format)).parent().addClass('active');
+          }
+        });
+      }
+      startCountdown( onCountdown );
+    });
 
   </script>

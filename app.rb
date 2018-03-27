@@ -34,6 +34,10 @@ class App < Sinatra::Base
       html << countdown_tag(name, time)
       html
     end
+
+    def current_year
+      @current_year ||= Date.today.year
+    end
   end
 
   get "/" do
