@@ -1,9 +1,11 @@
 development: 
+  adapter: postgresql
+  database: dawa-tools
   encoding: utf8
   min_messages: warning
+  pool: 5
+  reaping_frequency: 10
   timeout: 5000
-  url: <%= ENV.fetch('DATABASE_URL', '') %>
-  adapter: postgresql
 
 test:
   adapter: sqlite3
