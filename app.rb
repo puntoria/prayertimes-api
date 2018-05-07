@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
   helpers do
     def javascript_include_tags(*sources)
-      html = ''
+      html = ""
       sources.each do |path|
         html << "<script src=\"#{path}\"></script>"
       end
@@ -18,7 +18,7 @@ class App < Sinatra::Base
     end
 
     def stylesheet_include_tags(*sources)
-      html = ''
+      html = ""
       sources.each do |path|
         html << "<link rel='stylesheet' href=\"#{path}\">"
       end
@@ -31,7 +31,7 @@ class App < Sinatra::Base
     end
 
     def countdown(name, time)
-      html = ''
+      html = ""
       html << "<span>#{name}</span>"
       html << countdown_tag(name, time)
       html
