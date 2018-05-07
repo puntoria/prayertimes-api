@@ -18,5 +18,5 @@ production:
   encoding: utf8
   min_messages: warning
   timeout: 5000
-  url: ENV['DATABASE_URL']
+  url: <%= ENV.fetch('DATABASE_URL', '') %>
   adapter: postgresql
