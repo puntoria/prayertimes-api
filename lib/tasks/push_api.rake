@@ -15,6 +15,7 @@ namespace :push_api do
     subscriptions = PushAPI::PushSubscription.call(Timings.find_by_date(today))
 
     subscriptions.each do |salat, timings|
+      next if salat == :fajr
       timings.each do |timing|
         pmd = PushAPI::PushMessageData.new(salat, timing)
 
@@ -27,6 +28,6 @@ namespace :push_api do
       end
     end
 
-    Rails.logger.info(Date.today.strftime('%d-%m-%Y'))
+    puts Date.today.strftime('%d-%m-%Y')
   end
 end
