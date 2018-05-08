@@ -17,6 +17,7 @@ gem 'otr-activerecord'
 gem 'pry'
 gem 'rack-cors'
 gem 'rake'
+gem 'rspec'
 gem 'rest-client'
 gem 'rubocop', '~> 0.55.0', require: false
 gem 'sinatra', github: 'sinatra/sinatra'
@@ -28,7 +29,6 @@ end
 group :test do
   gem 'capybara'
   gem 'rack-test'
-  gem 'rspec'
   gem 'selenium-webdriver'
 end
 
