@@ -14,19 +14,19 @@ module PushAPI
 
     def devices
       json_response(
-        OneSignal::Player.all(params: params)
+        OneSignal::Player.all(params: app_id)
       )
     end
 
     def notification(id)
       json_response(
-        OneSignal::Notification.get(id: id, params: params)
+        OneSignal::Notification.get(id: id, params: app_id)
       )
     end
 
     def notifications
       json_response(
-        OneSignal::Notification.all(params: params)
+        OneSignal::Notification.all(params: app_id)
       )
     end
 
@@ -42,14 +42,14 @@ module PushAPI
             priority: params.fetch(:priority, 5),
             ttl: params.fetch(:ttl, Time.now.seconds_until_end_of_day),
             isAnyWeb: true
-          }.merge!(params)
+          }.merge!(app_id)
         )
       )
     end
 
     def delete_notification(id)
       json_response(
-        OneSignal::Notification.delete(id: id, params: params)
+        OneSignal::Notification.delete(id: id, params: app_id)
       )
     end
 
@@ -63,7 +63,7 @@ module PushAPI
       )
     end
 
-    def params
+    def app_id
       { app_id: ENV.fetch('ONESIGNAL_APP_ID') }
     end
   end
