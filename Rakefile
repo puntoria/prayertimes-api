@@ -3,7 +3,10 @@
 require 'rspec/core'
 require 'rspec/core/rake_task'
 require 'active_record'
+
+load './lib/tasks/event_publisher.rake'
 load './lib/tasks/push_api.rake'
+load './lib/tasks/seed.rake'
 
 RSpec::Core::RakeTask.new(:spec)
 OTR::ActiveRecord.migrations_paths = ['db/migrate']

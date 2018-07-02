@@ -1,13 +1,13 @@
 GIT
   remote: git://github.com/sinatra/sinatra.git
-  revision: 9f4100a769bc62a8087a12511f26ea895e5e09c5
+  revision: 47a990d9a86cd42e3a18a8145ccacd7567ace66f
   specs:
-    rack-protection (2.0.0.beta2)
+    rack-protection (2.0.3)
       rack
-    sinatra (2.0.0.beta2)
-      mustermann (= 1.0.0.beta2)
+    sinatra (2.0.3)
+      mustermann (~> 1.0)
       rack (~> 2.0)
-      rack-protection (= 2.0.0.beta2)
+      rack-protection (= 2.0.3)
       tilt (~> 2.0)
 
 GEM
@@ -56,6 +56,10 @@ GEM
     enumerable-lazy (0.0.2)
     equalizer (0.0.11)
     ffi (1.9.14)
+    globalize (5.1.0)
+      activemodel (>= 4.2, < 5.2)
+      activerecord (>= 4.2, < 5.2)
+      request_store (~> 1.0)
     grape (0.17.0)
       activesupport
       builder
@@ -91,7 +95,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     multi_xml (0.6.0)
-    mustermann (1.0.0.beta2)
+    mustermann (1.0.2)
     mustermann19 (0.4.4)
       enumerable-lazy
     netrc (0.11.0)
@@ -119,6 +123,8 @@ GEM
       rack (>= 1.0)
     rainbow (3.0.0)
     rake (12.0.0)
+    request_store (1.4.1)
+      rack (>= 1.4)
     rest-client (2.0.2)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
@@ -150,8 +156,9 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     slop (3.6.0)
+    sqlite3 (1.3.13)
     thread_safe (0.3.5)
-    tilt (2.0.5)
+    tilt (2.0.8)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -171,14 +178,16 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 4.2.7)
+  activerecord
   capybara
   dotenv
+  globalize
   grape
   grape-entity
   grape-swagger
   grape-swagger-entity
   hijri
+  nokogiri
   one_signal
   otr-activerecord
   pg
@@ -191,9 +200,10 @@ DEPENDENCIES
   rubocop (~> 0.55.0)
   selenium-webdriver
   sinatra!
+  sqlite3
 
 RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.16.1
+   1.16.2

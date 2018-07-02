@@ -3,6 +3,7 @@
 require 'date'
 require 'sinatra'
 
+# :nodoc:
 class App < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :erb, layout: :'layouts/default'
@@ -47,5 +48,17 @@ class App < Sinatra::Base
     timings = Timings.find_by_date(date)
 
     erb :index, locals: { timings: timings }
+  end
+
+  get '/zikirs' do
+    zikirs = Zikir.all
+
+    erb :'zikirs/index', locals: { zikirs: zikirs }
+  end
+
+  get '/zikirs/:id' do
+    zikir = Zikir.find(params[:id])
+
+    erb :'zikirs/show', locals: { zikir: zikir }
   end
 end
