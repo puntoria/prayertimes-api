@@ -2,8 +2,5 @@
 
 # :nodoc:
 class Timings < ActiveRecord::Base
-  include TimetableEditor
-  
   self.table_name = 'kosova'
-
 end
