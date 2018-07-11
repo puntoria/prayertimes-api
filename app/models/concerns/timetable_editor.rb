@@ -1,20 +1,25 @@
 # frozen_string_literal: true
 
+require './lib/utils'
 require 'active_support/concern'
 
+# :nodoc:
 module TimetableEditor
+  include Utils
   extend ActiveSupport::Concern
 
-  module ClassMethods
-    def fajr
-      time = Time.parse(self.fajr)
-      self.fajr = time.advance(minutes: 40)
-    end
+  included do
+    # Specify the table name
+    self.table_name = 'kosova'
+  end
 
-    def dhuhr
-      time = Time.parse(self.dhuhr)
-      self.dhuhr = time.advance(minutes: 16)
-    end
+  def fajr
+    time = time_advanced(read(:fajr), minutes: 40)
+    change(:fajr, time)
+  end
 
+  def dhuhr
+    time = time_advanced(read(:dhuhr), minutes: 16)
+    change(:dhuhr, time)
   end
 end
