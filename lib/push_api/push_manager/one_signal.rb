@@ -39,8 +39,8 @@ module PushAPI
             contents: { en: params.fetch(:content) },
             include_player_ids: params.fetch(:include_player_ids),
             send_after: params.fetch(:send_after, Time.now),
-            priority: params.fetch(:priority, 5),
-            ttl: params.fetch(:ttl, Time.now.seconds_until_end_of_day),
+            priority: params.fetch(:priority, 10),
+            ttl: params.fetch(:ttl, Time.now.advance(minutes: 10)),
             isAnyWeb: true
           }.merge!(app_id)
         )
