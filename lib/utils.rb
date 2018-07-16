@@ -6,7 +6,7 @@ require 'active_support/core_ext/time'
 module Utils
   def time_advanced(attr_name, minutes:)
     time = Time.parse(attr_name)
-    time.advance(minutes: minutes).strftime('%I:%M')
+    time.advance(minutes: minutes).strftime('%H:%M')
   end
   
   def read(key)
